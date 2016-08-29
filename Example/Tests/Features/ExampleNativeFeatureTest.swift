@@ -18,7 +18,7 @@ class RunSingleFeatureFileTest: NativeTestCase {
         
         // In case you want to use only one feature file instead of the whole folder
         // Just provide the URL to the file
-        self.path = bundle.resourceURL?.URLByAppendingPathComponent("NativeFeatures/native_example.feature")
+        self.path = bundle.resourceURL?.URLByAppendingPathComponent("NativeFeatures/native_example_simple.feature")
     }
 }
 

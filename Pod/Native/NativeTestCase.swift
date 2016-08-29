@@ -14,7 +14,7 @@ import XCTest
 public class NativeTestCase : XCTestCase {
     
     public var path:NSURL?
-    public func setUpBeforeScenario() {}
+    public func setUpBeforeScenario() {} //todo:
     
     var testCaseClass: AnyClass!
     

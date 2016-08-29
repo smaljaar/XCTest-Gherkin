@@ -1,6 +1,7 @@
 Feature: Simple Feature File Parsing
 
-    Scenario: This is a basic happy path example
-        Given I have a working Gherkin environment
-        Then this test should not fail
+Scenario: experiment with regex
+Given I tap on button Hello
+And I swipe on page Login
+And I doubletap on button iban
 

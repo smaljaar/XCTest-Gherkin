@@ -11,8 +11,29 @@ import XCTest_Gherkin
 
 class SanitySteps : StepDefiner {
     
+    
+    enum Gesture: String {
+        case Tap = "tap"
+        case Swipe = "swipe"
+    }
+    
     override func defineSteps() {
         
+        step("I (tap|swipe|doubletap) on (.*) (.*)") { (matches: [String]) in
+            let gesture = matches[0]
+            let elementType = matches[1]
+            let accId = matches[2]
+            
+            print(gesture+elementType+accId)
+            
+            let myGesture = Gesture(rawValue: gesture)
+            
+            print(myGesture)
+            
+            
+            XCTAssertTrue(true)
+        }
+
         // Examples of defining a step with no capture groups
         step("I have a working Gherkin environment") {
             XCTAssertTrue(true)
