@@ -781,11 +781,13 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = "XCTest-Gherkin_ExampleUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.net-a-porter.XCTest-Gherkin-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "XCTest-Gherkin_Example";
 			};
 			name = Debug;
@@ -795,11 +797,13 @@
 			baseConfigurationReference = CA8B701E9DF0C2ED4847D00A /* Pods-XCTest-Gherkin_Example-XCTest-Gherkin_ExampleUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = "XCTest-Gherkin_ExampleUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.net-a-porter.XCTest-Gherkin-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "XCTest-Gherkin_Example";
 			};
 			name = Release;
