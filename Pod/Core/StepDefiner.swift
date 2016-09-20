@@ -9,9 +9,9 @@
 import XCTest
 
 /**
-Classes which extend this class will be queried by the system to
-populate the step definitions before test runs
-*/
+ Classes which extend this class will be queried by the system to
+ populate the step definitions before test runs
+ */
 public class StepDefiner {
     public let test: XCTestCase
     
@@ -20,18 +20,18 @@ public class StepDefiner {
     }
     
     /**
-      Override this to create your own step definitions
+     Override this to create your own step definitions
      */
     public func defineSteps() -> Void { }
-
+    
     /**
      Create a new step with an expression that contains no matching groups.
-         
+     
      Don't pass anything for file: or path: - these will be automagically filled out for you. Use it like this:
-         
-         step("Some regular expression") {
-             ... some function ...
-         }
+     
+     step("Some regular expression") {
+     ... some function ...
+     }
      
      - parameter expression: The expression to match against
      - parameter f0: The step definition to be run
@@ -40,15 +40,15 @@ public class StepDefiner {
     public func step(expression: String, file: String = #file, line: Int = #line, f0: ()->()) {
         self.test.addStep(expression, file: file, line: line) { (ignored:[String]) in f0() }
     }
-
+    
     /**
      Create a new step with an expression that contains one or more matching groups.
      
      Don't pass anything for file: or path: - these will be automagically filled out for you. Use it like this:
      
-         step("Some (regular|irregular) expression with a number ([0-9]*)") { (matches:[String]) in
-             ... some function ...
-         }
+     step("Some (regular|irregular) expression with a number ([0-9]*)") { (matches:[String]) in
+     ... some function ...
+     }
      
      - parameter expression: The expression to match against
      - parameter f1: The step definition to be run, passing in the matches from the expression
@@ -63,9 +63,9 @@ public class StepDefiner {
      
      Don't pass anything for file: or path: - these will be automagically filled out for you. Use it like this:
      
-         step("Some (regular|irregular) expression") { (match: String) in
-             ... some function ...
-         }
+     step("Some (regular|irregular) expression") { (match: String) in
+     ... some function ...
+     }
      
      - parameter expression: The expression to match against
      - parameter f1s: The step definition to be run, passing in the first capture group from the expression
@@ -114,9 +114,9 @@ public class StepDefiner {
      
      Don't pass anything for file: or path: - these will be automagically filled out for you. Use it like this:
      
-         step("Some (regular|irregular) expression with a second capture group here (.*)") { (match1: String, match2: String) in
-             ... some function ...
-         }
+     step("Some (regular|irregular) expression with a second capture group here (.*)") { (match1: String, match2: String) in
+     ... some function ...
+     }
      
      - parameter expression: The expression to match against
      - parameter f2s: The step definition to be run, passing in the first two capture groups from the expression
@@ -168,10 +168,10 @@ public class StepDefiner {
      
      Just do:
      
-         step("Some Other Step")
+     step("Some Other Step")
      
      - parameter expression: A string which should match another step definition's regular expression
-
+     
      */
     public func step(expression: String) {
         self.test.performStep(expression)

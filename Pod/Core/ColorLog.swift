@@ -14,7 +14,7 @@ import Foundation
  Designed to work with the XcodeColors Xcode plugin (I use Alcatraz to install it)
  
  Call `ColorLog.enabled = true` early on if you want it :)
-*/
+ */
 public struct ColorLog {
     /**
      Set this to true to add colour output. Defaults to `false`.

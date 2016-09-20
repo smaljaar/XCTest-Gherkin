@@ -15,7 +15,7 @@ class ParseState {
     var steps: [String]
     var exampleLines: [ (lineNumber:Int, line:String) ]
     var parsingBackground: Bool
-
+    
     convenience init() {
         self.init(description: nil)
     }

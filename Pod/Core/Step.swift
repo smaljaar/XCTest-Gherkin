@@ -9,9 +9,9 @@
 import Foundation
 
 /**
- Represents a single step definition - create it with the expression and the 
+ Represents a single step definition - create it with the expression and the
  test to run as a block.
-*/
+ */
 class Step : Hashable, Equatable, CustomDebugStringConvertible {
     let expression:String
     let function:([String])->()

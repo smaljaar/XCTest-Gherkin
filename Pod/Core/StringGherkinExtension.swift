@@ -12,27 +12,27 @@ public extension String {
     
     /**
      Given a human readable string this method will return a 'CamelCaseified' version of it.
-
+     
      - `"product details".screenName` returns `"ProductDetails"`
-
-    */
+     
+     */
     var camelCaseify: String {
         get {
             guard case let c = (self.characters.split { $0 == " " || $0 == "-" })
                 where c.count > 1 else {
-                return self.uppercaseFirstLetterString
+                    return self.uppercaseFirstLetterString
             }
             return c.map { String($0).lowercaseString.uppercaseFirstLetterString }
                 .joinWithSeparator("")
         }
     }
-
+    
     /**
      The reciever with the first letter uppercased - the rest of the string remains untouched.
      
      - "hello" -> "Hello"
      - "HeLLO" -> "HeLLO"
-    */
+     */
     var uppercaseFirstLetterString: String {
         get {
             guard case let c = self.characters,

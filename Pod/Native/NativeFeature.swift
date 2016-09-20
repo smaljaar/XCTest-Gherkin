@@ -45,7 +45,7 @@ class NativeFeature : CustomStringConvertible {
 
 extension NativeFeature {
     
-    convenience init?(contentsOfURL url: NSURL, stepChecker: GherkinStepsChecker) {
+    convenience init?(contentsOfURL url: NSURL) {
         // Read in the file
         let contents = try! NSString(contentsOfURL: url, encoding: NSUTF8StringEncoding)
         
@@ -66,28 +66,16 @@ extension NativeFeature {
         
         let feature = NativeFeature.parseLines(lines)
         
-        stepChecker.loadDefinedSteps()
-        
-        feature.scenarios.forEach({
-            $0.stepDescriptions.forEach({
-                stepChecker.matchGherkinStepExpressionToStepDefinitions($0)
-            })
-        })
-        
-        feature.background?.stepDescriptions.forEach({
-            stepChecker.matchGherkinStepExpressionToStepDefinitions($0)
-        })
-        
         self.init(description: featureDescription, scenarios: feature.scenarios, background: feature.background)
     }
     
-    private class func parseLines(lines: [String]) -> (background: NativeBackground?, scenarios:[NativeScenario]) {
+    private class func parseLines(_ lines: [String]) -> (background: NativeBackground?, scenarios:[NativeScenario]) {
         
         var state = ParseState()
         var scenarios = Array<NativeScenario>()
         var background: NativeBackground?
         
-        func saveBackgroundOrScenarioAndUpdateParseState(lineSuffix: String){
+        func saveBackgroundOrScenarioAndUpdateParseState(_ lineSuffix: String){
             if let aBackground = state.background() {
                 background = aBackground
             } else if let newScenarios = state.scenarios() {
@@ -152,7 +140,7 @@ private let whitespace = NSCharacterSet.whitespaceCharacterSet()
 
 extension String {
     
-    func componentsWithPrefix(prefix: String) -> (String, String?) {
+    func componentsWithPrefix(_ prefix: String) -> (String, String?) {
         guard self.hasPrefix(prefix) else { return (self,nil) }
         
         let index = (prefix as NSString).length
@@ -163,7 +151,7 @@ extension String {
     func lineComponents() -> (String, String)? {
         let prefixes = [ FileTags.Scenario, FileTags.Background, FileTags.Given, FileTags.When, FileTags.Then, FileTags.And, FileTags.Outline, FileTags.Examples, FileTags.ExampleLine ]
         
-        func first(a: [String]) -> (String, String)? {
+        func first(_ a: [String]) -> (String, String)? {
             if a.count == 0 { return nil }
             let string = a.first!
             let (prefix, suffix) = self.componentsWithPrefix(string)

@@ -31,7 +31,7 @@ class NativeScenario : CustomStringConvertible {
     
     var description: String {
         get {
-            return "<\(self.dynamicType) \(self.selectorString) \(self.stepDescriptions.count) steps>"
+            return "<\(self.dynamicType)) \(self.selectorString) \(self.stepDescriptions.count) steps>"
         }
     }
 }
