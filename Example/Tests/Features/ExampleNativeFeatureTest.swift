@@ -9,16 +9,20 @@
 import XCTest
 import XCTest_Gherkin
 
+private let bundle = NSBundle.allBundles()[1]
+
 class RunSingleFeatureFileTest: NativeTestCase {
     override class func path() -> NSURL? {
-        let bundle = NSBundle(forClass: NativeTestCase.self)
-        return  bundle.resourceURL?.URLByAppendingPathComponent("NativeFeatures/native_example_simple.feature")
+
+        let resourceURL = bundle.resourceURL
+        let fullURL = resourceURL?.URLByAppendingPathComponent("NativeFeatures/native_example_simple.feature")
+        
+        return  fullURL
     }
 }
 
 class RunMultipleFeatureFilesTest: NativeTestCase {
     override class func path() -> NSURL? {
-        let bundle = NSBundle(forClass: NativeTestCase.self)
         return bundle.resourceURL?.URLByAppendingPathComponent("NativeFeatures/")
     }
 }
