@@ -49,6 +49,7 @@ class AfterTagTests: XCTestCase {
         XCTAssertEqual(scenariosToTest?[0].tag, "@cleanupTask")
         XCTAssertEqual(scenariosToTest?[1].tag, nil)
         XCTAssertEqual(scenariosToTest?[2].tag, "@anotherTag")
+        XCTAssertEqual(scenariosToTest?[3].tag, "@anotherTag")
     }
     
     func testNoBackgroundAndExamples() {
